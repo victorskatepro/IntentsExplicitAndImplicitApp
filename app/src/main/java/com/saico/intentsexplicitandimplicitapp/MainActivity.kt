@@ -11,6 +11,8 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat.startActivityForResult
 import android.R.attr.data
 import android.app.Activity
+import android.widget.Button
+import android.widget.EditText
 
 
 const val ACTIVITY_A_REQUEST = 991
@@ -18,12 +20,25 @@ const val ACTIVITY_B_REQUEST = 992
 
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var edtCode: EditText
+    private lateinit var btnImplicit: Button
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        edtCode = findViewById(R.id.edtCodeInput)
+        btnImplicit = findViewById(R.id.btnExplicit)
+
+        edtCode.setText("TEXTO DIFERENTE")
+
+        btnImplicit.setOnClickListener {}
     }
 
     fun sendExplicit(view: android.view.View) {
+
         val code = edtCodeInput.text.toString()
         val fullName = edtFullNameInput.text.toString()
         val amount = edtAmountInput.text.toString()
